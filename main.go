@@ -2,10 +2,47 @@ package main
 
 import (
     "fmt"
+    "os"
+    "path/filepath"
 )
 
+type NoteStruct struct {
+    Type string
+    Path string
+}
+
+func discover(path string) {
+    filepath.Walk(path, func(path string, info os.FileInfo, err error) error {
+
+        if err != nil {
+            fmt.Println(err)
+        }
+
+        notes := []NoteStruct{}
+        item := NoteStruct{}
+
+        if info.IsDir() {
+            item = NoteStruct{Type:"dir", Path: path}
+
+        } else {
+            item = NoteStruct{Type:"file", Path: path}
+
+        }
+        notes = append(notes, item)
+
+
+        for _, j := range notes {
+            fmt.Printf("Type: %s Path: %s\n", j.Type, j.Path)
+        }
+        
+        return nil
+    })
+}
+
 func main() {
-    fmt.Println("test")
+    notesDir := "/home/brun0/workspace/personal-kb/notes/"
+
+    discover(notesDir)
 }
 
 // ========================================================================================= //
