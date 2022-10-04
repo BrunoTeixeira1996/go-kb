@@ -5,6 +5,10 @@
 - [x] Parsing .md to .html and display html
 - [x] Press a path and open the .md file in browser
 - [x] Use go template to display the .md -> html file
+- [] Clean html templates
+- [] Create a template that holds de nav bar and import that to other templates
+- [] Create a template that represents all .md files
+- [] Create a template that represents the page with buttons
 - [] Clean code and organize to a better understanding
 - [] Render images and make css work
 - [] Clean code and organize to a better understanding
