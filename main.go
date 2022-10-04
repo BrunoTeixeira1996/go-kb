@@ -91,7 +91,7 @@ func main() {
 
     mux.Handle("/assets/", http.StripPrefix("/assets/", fs))
     mux.HandleFunc("/", indexHandler(tpl))
-    mux.HandleFunc("/notes", pathHandler(*notes)) // working on this know
+    mux.HandleFunc("/notes", pathHandler(*notes))
     http.ListenAndServe(":"+port, mux)
 
 }
@@ -107,3 +107,5 @@ func main1() {
     html := markdown.ToHTML(content, nil, nil)
     fmt.Printf(string(html))
 }
+
+//https://www.youtube.com/watch?v=oVFqbzQoPVg 
