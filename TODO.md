@@ -1,9 +1,9 @@
 # TODO
 
-- [] Scan phase, that recursively finds all folders and files and make some kind of struct
-- [] Display the folder struct in html
-- [] Press a path and open the .md file in browser
+- [x] Scan phase, that recursively finds all folders and files and make some kind of struct
+- [x] Display the folder struct in html
 - [] Parsing .md to .html and display html (use blackfriday lib)
+- [] Press a path and open the .md file in browser
 - [] Use go template to display the .md -> html file
 - [] Create the search functionality
 - [] Update files in runtime and check that live in webserver
