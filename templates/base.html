@@ -1,3 +1,10 @@
-{{range .}}
-<a href="{{.Path}}">{{.Path}}</a> -> <span>{{.Type}}</span> <br>  
-{{end}}
+<h1>ola</h1>
+
+
+<form method="POST">
+  <div>
+    {{ range $i,$e := . }}
+    <button type="submit" value="{{ $e.Path }}" name="submit">{{ $e.Path }}</button> <br>
+    {{ end }}
+</div>
+</form>

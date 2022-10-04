@@ -2,9 +2,12 @@
 
 - [x] Scan phase, that recursively finds all folders and files and make some kind of struct
 - [x] Display the folder struct in html
-- [] Parsing .md to .html and display html (use blackfriday lib)
-- [] Press a path and open the .md file in browser
-- [] Use go template to display the .md -> html file
+- [x] Parsing .md to .html and display html
+- [x] Press a path and open the .md file in browser
+- [x] Use go template to display the .md -> html file
+- [] Clean code and organize to a better understanding
+- [] Render images and make css work
+- [] Clean code and organize to a better understanding
 - [] Create the search functionality
 - [] Update files in runtime and check that live in webserver
 - [] Refactor code to make it simple and normative
