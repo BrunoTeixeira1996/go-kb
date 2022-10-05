@@ -11,6 +11,12 @@ import (
     "github.com/gomarkdown/markdown"
 )
 
+type PageData struct {
+    PageTitle string
+    Nav       template.HTML
+    Content   []NoteStruct
+}
+
 type NoteStruct struct {
     Type string
     Path string
@@ -37,19 +43,27 @@ func discover(path string, notes *[]NoteStruct) {
         return nil
     })
 }
-
-func indexHandler(template *template.Template) http.HandlerFunc {
+func indexHandler(page PageData, navData string, baseTemplate *template.Template) http.HandlerFunc {
     return func(w http.ResponseWriter, r *http.Request) {
-        template.Execute(w, nil)
+        data := PageData{
+            PageTitle: "Index",
+            Nav:       template.HTML(navData),
+            Content:   []NoteStruct{},
+        }
+        baseTemplate.Execute(w, data)
     }
 }
 
-func pathHandler(notes []NoteStruct) http.HandlerFunc {
+func pathHandler(notes []NoteStruct, page PageData, navData string, baseTemplate *template.Template) http.HandlerFunc {
     return func(w http.ResponseWriter, r *http.Request) {
         switch r.Method {
         case "GET":
-            t, _ := template.ParseFiles("/home/brun0/workspace/personal-kb/templates/base.html")
-            t.Execute(w, notes)
+            data := PageData{
+                PageTitle: "Notes",
+                Nav:       template.HTML(navData),
+                Content:   notes,
+            }
+            baseTemplate.ExecuteTemplate(w, "buttons.html", data)
         case "POST":
             press := r.FormValue("submit")
             html, err := mdToHtml(press)
@@ -74,38 +88,71 @@ func mdToHtml(file string) (string, error) {
 
 }
 
-func main() {
+func main1() {
     notesDir := "/home/brun0/workspace/personal-kb/notes/"
 
     notes := &[]NoteStruct{}
     discover(notesDir, notes)
 
     port := "9191"
-    fs := http.FileServer(http.Dir("assets"))
+
     mux := http.NewServeMux()
 
-    tpl := template.Must(template.ParseFiles("/home/brun0/workspace/personal-kb/templates/index.html"))
+    baseTemplate := template.Must(template.ParseFiles("/home/brun0/workspace/personal-kb/templates/base.html", "/home/brun0/workspace/personal-kb/templates/buttons.html"))
 
-
-
-
+    fs := http.FileServer(http.Dir("assets"))
     mux.Handle("/assets/", http.StripPrefix("/assets/", fs))
-    mux.HandleFunc("/", indexHandler(tpl))
-    mux.HandleFunc("/notes", pathHandler(*notes))
+
+    navData, _ := ioutil.ReadFile("/home/brun0/workspace/personal-kb/templates/nav.html")
+    mux.HandleFunc("/", indexHandler(PageData{}, string(navData), baseTemplate))
+
+    mux.HandleFunc("/notes", pathHandler(*notes, PageData{}, string(navData), baseTemplate))
     http.ListenAndServe(":"+port, mux)
 
 }
 
-func main1() {
-    file := "/home/brun0/workspace/personal-kb/notes/test1.md"
-    content, err := ioutil.ReadFile(file)
-
-    if err != nil {
-        fmt.Println(err)
-    }
-
-    html := markdown.ToHTML(content, nil, nil)
-    fmt.Printf(string(html))
+type Page struct {
+    Title string
 }
 
-//https://www.youtube.com/watch?v=oVFqbzQoPVg 
+type OptionsContent struct {
+    Title string
+    Notes []NoteStruct
+}
+
+func indexTest(baseTemplate *template.Template) http.HandlerFunc {
+    return func(w http.ResponseWriter, r *http.Request) {
+        page := Page{
+            Title: "Index",
+        }
+        baseTemplate.Execute(w, page)
+    }
+}
+
+func optionsHandle(options *OptionsContent, someTemplate *template.Template) http.HandlerFunc {
+    return func(w http.ResponseWriter, r *http.Request) {
+        someTemplate.Execute(w, options)
+    }
+}
+
+func main() {
+    notesDir := "/home/brun0/workspace/personal-kb/notes/"
+
+    notes := &[]NoteStruct{}
+    discover(notesDir, notes)
+    options := &OptionsContent{Title: "something", Notes: *notes}
+
+    mux := http.NewServeMux()
+
+    baseTemplate := template.Must(template.ParseFiles("/home/brun0/workspace/personal-kb/draft/base.html", "/home/brun0/workspace/personal-kb/draft/index.html"))
+
+    someTemplate := template.Must(template.ParseFiles("/home/brun0/workspace/personal-kb/draft/base.html", "/home/brun0/workspace/personal-kb/draft/options.html"))
+
+    //mux.Handle("/assets/", http.FileServer(http.Dir("assets")))
+    mux.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
+    http.HandleFunc("/index", indexTest(baseTemplate))
+    http.HandleFunc("/options", optionsHandle(options, someTemplate))
+
+    //http.ListenAndServe(":8080", mux)
+    http.ListenAndServe(":8080", nil)
+}
