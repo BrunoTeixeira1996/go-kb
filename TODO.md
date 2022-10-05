@@ -5,10 +5,10 @@
 - [x] Parsing .md to .html and display html
 - [x] Press a path and open the .md file in browser
 - [x] Use go template to display the .md -> html file
-- [] Clean html templates
-- [] Create a template that holds de nav bar and import that to other templates
-- [] Create a template that represents all .md files
-- [] Create a template that represents the page with buttons
+- [x] Clean html templates
+- [x] Create a template that holds de nav bar and import that to other templates
+- [] Create a template that represents all .md files (press a .md file and navigate to that template with the custom .md but with the nav bar) (can I use a custom url for that? like http://localhost:9999/options/client1/test.md)
+- [] Press a button and open another page with .md files and buttons, depending on the folder content
 - [] Clean code and organize to a better understanding
 - [] Render images and make css work
 - [] Clean code and organize to a better understanding

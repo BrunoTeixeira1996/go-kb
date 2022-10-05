@@ -1,5 +1,6 @@
-{{ template "header.html" . }}
-<div>
-  Here at WidgetCo, we only offer the highest quality widgets!
-</div>
-{{ template "footer.html" . }}
+{{ define "title" }}{{ .Title }}{{ end }}
+{{ define "content" }}
+{{ .Title }}
+<p> acho eu</p>
+<h1> asdasd </h1>
+{{ end }}
