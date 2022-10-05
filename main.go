@@ -148,11 +148,12 @@ func main() {
 
     someTemplate := template.Must(template.ParseFiles("/home/brun0/workspace/personal-kb/draft/base.html", "/home/brun0/workspace/personal-kb/draft/options.html"))
 
-    //mux.Handle("/assets/", http.FileServer(http.Dir("assets")))
-    mux.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
-    http.HandleFunc("/index", indexTest(baseTemplate))
-    http.HandleFunc("/options", optionsHandle(options, someTemplate))
+    fs := http.FileServer(http.Dir("assets"))
+    mux.Handle("/assets/", http.StripPrefix("/assets/", fs))
 
-    //http.ListenAndServe(":8080", mux)
-    http.ListenAndServe(":8080", nil)
+    
+    mux.HandleFunc("/", indexTest(baseTemplate))
+    mux.HandleFunc("/options", optionsHandle(options, someTemplate))
+
+    http.ListenAndServe(":8080", mux)    
 }
