@@ -11,8 +11,9 @@ import (
 
 // Struct that stores Files and Folders paths
 type Storage struct {
-    Type string
-    Path string
+    Type     string
+    FullPath string
+    Name     string
 }
 
 // Function to get every dir and file recursv
@@ -26,10 +27,9 @@ func Discover(path string, storage *[]Storage) {
         item := Storage{}
 
         if info.IsDir() {
-            item = Storage{Type: "dir", Path: path}
-
+            item = Storage{Type: "dir", FullPath: path, Name: info.Name()}
         } else {
-            item = Storage{Type: "file", Path: path}
+            item = Storage{Type: "file", FullPath: path, Name: info.Name()}
 
         }
         *storage = append(*storage, item)

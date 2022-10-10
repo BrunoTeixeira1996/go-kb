@@ -2,7 +2,6 @@ package main
 
 import (
     "brunoteixeira1996/personal-kb/utils"
-    "fmt"
     "html/template"
     "net/http"
 )

@@ -4,7 +4,7 @@
   <div class="row">
     {{ range $element := .Notes }}
     <div class="col-sm-3" style="margin:30px">
-      <a type="button" class="btn" style="background-color: #a5b6c0;width:100%;height:100%" value="{{ $element.Path }}" name="submit">{{ $element.Path }}</a>
+      <button class="btn" style="background-color: #a5b6c0;width:100%;height:100%" value="{{ $element.FullPath }}" name="submit">{{ $element.Name }}</button>
     </div>
     {{ end }}
   </div>
