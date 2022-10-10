@@ -8,9 +8,10 @@
 - [x] Clean html templates
 - [x] Create a template that holds de nav bar and import that to other templates
 - [x] Create a template that represents all .md files (press a .md file and navigate to that template with the custom .md but with the nav bar)
-- [ ] Clean code and organize to a better understanding
+- [x] Clean code and organize to a better understanding
+- [ ] Strip full path to only show the folder or the file name and use a different color if folder or file
 - [ ] Press a button and open another page with .md files and buttons, depending on the folder content
-- [ ] Render images and make css work
+- [ ] Render images and make html/css work better
 - [ ] Clean code and organize to a better understanding
 - [ ] Create the search functionality
 - [ ] Update files in runtime and check that live in webserver
