@@ -1,16 +1,21 @@
 body {
-  background: #fafafa;
-  color: #333333;
+  background: #282828;
+  color: #f4f4ff;
   margin-top: 5rem;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    /* color: #444444; */
-    color: #880808;
+pre {
+    background: #181818;
+    color: #f4f4ff;
+}
+
+
+h1, h2, h3, h4, h5, h6 { 
+   color: #ffdd33;
 }
 
 .bg-steel {
-  background-color: #5f788a;
+  background-color: #181818;
 }
 
 .site-header .navbar-nav .nav-link {
