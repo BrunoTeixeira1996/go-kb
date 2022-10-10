@@ -22,6 +22,12 @@ type Page struct {
     Title string
 }
 
+// DOING THIS
+type Note struct {
+    Title string
+    Content template.HTML
+}
+
 // Struct that represents a webpage with buttons
 type OptionsContent struct {
     Title string
@@ -39,21 +45,21 @@ func indexHandle(baseTemplate *template.Template) http.HandlerFunc {
 }
 
 // Handles "/options"
-func optionsHandle(options *OptionsContent, someTemplate *template.Template) http.HandlerFunc {
+// TODO: validate .Execute errors
+func optionsHandle(options *OptionsContent, someTemplate *template.Template, notesTemplate *template.Template) http.HandlerFunc {
     return func(w http.ResponseWriter, r *http.Request) {
         switch r.Method {
         case "GET":
             someTemplate.Execute(w, options)
         case "POST":
-            // TODO: Make this get the same template plus rendering the markdown
             // TODO: Make this generate a 404 not found if nothing is found
             press := r.FormValue("submit")
-            fmt.Printf("aqui\n")
             html, err := mdToHtml(press)
             if err != nil {
                 fmt.Println(err.Error())
             }
-            fmt.Fprintf(w, string(html))
+            note := Note{Title: press, Content: template.HTML(html)}
+            notesTemplate.Execute(w, note)
         }
         
     }
@@ -112,7 +118,9 @@ func main() {
 
     someTemplate := template.Must(template.ParseFiles("/home/brun0/workspace/personal-kb/templates/base.html", "/home/brun0/workspace/personal-kb/templates/options.html"))
 
-
+    noteTemplate := template.Must(template.ParseFiles("/home/brun0/workspace/personal-kb/templates/base.html", "/home/brun0/workspace/personal-kb/templates/notes.html"))
+    
+    
     fs := http.FileServer(http.Dir("assets"))
     mux.Handle("/assets/", http.StripPrefix("/assets/", fs))
 
@@ -120,7 +128,7 @@ func main() {
     mux.HandleFunc("/", indexHandle(baseTemplate))
 
     // TODO: Think of a better name than options
-    mux.HandleFunc("/options", optionsHandle(options, someTemplate))
-
+    mux.HandleFunc("/options", optionsHandle(options, someTemplate, noteTemplate))
+    
     http.ListenAndServe(":8080", mux)
 }

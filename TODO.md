@@ -7,14 +7,14 @@
 - [x] Use go template to display the .md -> html file
 - [x] Clean html templates
 - [x] Create a template that holds de nav bar and import that to other templates
-- [] Create a template that represents all .md files (press a .md file and navigate to that template with the custom .md but with the nav bar) (can I use a custom url for that? like http://localhost:9999/options/client1/test.md)
-- [] Press a button and open another page with .md files and buttons, depending on the folder content
-- [] Clean code and organize to a better understanding
-- [] Render images and make css work
-- [] Clean code and organize to a better understanding
-- [] Create the search functionality
-- [] Update files in runtime and check that live in webserver
-- [] Refactor code to make it simple and normative
+- [x] Create a template that represents all .md files (press a .md file and navigate to that template with the custom .md but with the nav bar)
+- [ ] Clean code and organize to a better understanding
+- [ ] Press a button and open another page with .md files and buttons, depending on the folder content
+- [ ] Render images and make css work
+- [ ] Clean code and organize to a better understanding
+- [ ] Create the search functionality
+- [ ] Update files in runtime and check that live in webserver
+- [ ] Refactor code to make it simple and normative
 
 
 # Idea
