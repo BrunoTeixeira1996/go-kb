@@ -28,7 +28,7 @@ func Discover(path string, storage *[]Storage) {
         item := Storage{}
 
         if info.IsDir() {
-            item = Storage{Type: "dir", FullPath: path, Name: info.Name(), Color : "#939eb5"}
+            item = Storage{Type: "dir", FullPath: path, Name: info.Name(), Color : "#515151"}
         } else {
             item = Storage{Type: "file", FullPath: path, Name: info.Name(), Color: "#f2dd72"}
 

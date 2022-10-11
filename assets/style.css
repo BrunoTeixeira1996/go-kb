@@ -1,6 +1,6 @@
 body {
-  background: #282828;
-  color: #f4f4ff;
+  background: #2a2a2a;
+  color: #e4e4ef;
   margin-top: 5rem;
 }
 
@@ -10,7 +10,7 @@ pre {
 }
 
 
-h1, h2, h3, h4, h5, h6 { 
+h1, h2, h3, h4, h5, h6 {
    color: #ffdd33;
 }
 
@@ -36,4 +36,20 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid #dddddd;
   border-radius: 3px;
   margin-bottom: 20px;
+}
+
+.event {
+    padding: 20px;
+    margin-top: 10px;
+    text-align: center;
+    background: #1b1b1b;
+}
+
+button {
+  background: none!important;
+  border: none;
+  color: #e4e4ef;
+  padding: 0!important;
+  text-decoration: none;
+  cursor: pointer;
 }
