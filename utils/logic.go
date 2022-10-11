@@ -14,6 +14,7 @@ type Storage struct {
     Type     string
     FullPath string
     Name     string
+    Color    string
 }
 
 // Function to get every dir and file recursv
@@ -27,9 +28,9 @@ func Discover(path string, storage *[]Storage) {
         item := Storage{}
 
         if info.IsDir() {
-            item = Storage{Type: "dir", FullPath: path, Name: info.Name()}
+            item = Storage{Type: "dir", FullPath: path, Name: info.Name(), Color : "#939eb5"}
         } else {
-            item = Storage{Type: "file", FullPath: path, Name: info.Name()}
+            item = Storage{Type: "file", FullPath: path, Name: info.Name(), Color: "#f2dd72"}
 
         }
         *storage = append(*storage, item)
