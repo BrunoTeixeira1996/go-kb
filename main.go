@@ -14,7 +14,7 @@ func main() {
     //utils.DiscoverFilesAndDirsRecur(notesDir, notes)
     utils.DiscoverFilesAndDirs(notesDir, notes)
 
-    options := &utils.Kb{Title: "KB", Notes: *notes}
+    options := &utils.Kb{Title: notesDir, Notes: *notes}
 
     mux := http.NewServeMux()
 
@@ -33,3 +33,5 @@ func main() {
 
     http.ListenAndServe(":8080", mux)
 }
+
+// TODO: make back button work
