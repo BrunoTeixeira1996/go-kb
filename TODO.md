@@ -11,8 +11,9 @@
 - [x] Clean code and organize to a better understanding
 - [x] Strip full path to only show the folder or the file name
 - [x] Use a different color if folder or file
-- [ ] Change theme to be more like https://github.com/tsoding/tsoding.github.io (DOING THIS)
-- [ ] Create the logic for the rendering
+- [x] Change theme to be more like https://github.com/tsoding/tsoding.github.io 
+- [x] Create the logic for the rendering
+- [ ] Create the back button
 - [ ] Be able to read the description and Title of document and use that inside the box of html page (THINKING)
 - [ ] Render images and make html/css work better
 - [ ] Clean code and organize to a better understanding

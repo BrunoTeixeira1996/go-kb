@@ -1,11 +1,9 @@
 package utils
 
 import (
-    "fmt"
     "html/template"
     "net/http"
 )
-
 
 // Struct that represents a webpage
 type Page struct {
@@ -44,11 +42,21 @@ func KbHandle(options *Kb, someTemplate *template.Template, notesTemplate *templ
         case "POST":
             press := r.FormValue("submit")
             html, err := MdToHtml(press)
+
+            // This is a dir
             if err != nil {
-                fmt.Println(err.Error())
+                notes := &[]Storage{}
+                DiscoverFilesAndDirs(press, notes)
+                // FIXME: change this title from KB to the original one
+                options := &Kb{Title: "KB", Notes: *notes}
+                someTemplate.Execute(w, options)
+
+                // This is a file
+            } else {
+                note := Note{Title: press, Content: template.HTML(html)}
+                notesTemplate.Execute(w, note)
             }
-            note := Note{Title: press, Content: template.HTML(html)}
-            notesTemplate.Execute(w, note)
+
         }
 
     }
