@@ -1,4 +1,4 @@
-module brunoteixeira1996/personal-kb
+module brunoteixeira1996/go-kb
 
 go 1.19
 

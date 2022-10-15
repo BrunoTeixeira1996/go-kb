@@ -9,9 +9,11 @@
     {{ end }}
   </div>
 </div>
+{{ if ne .Title "KB" }}
 <div class="event" style="margin:30px; border: 1px solid">
   <button value="{{ .Title }}" name="back">{{ .Title }}</button>
 </div>
+{{ end }}
 </form>
 {{ end }}
 

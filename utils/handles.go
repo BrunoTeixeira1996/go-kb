@@ -35,45 +35,50 @@ func IndexHandle(baseTemplate *template.Template) http.HandlerFunc {
 
 // Handles "/options"
 // TODO: validate .Execute errors
-func KbHandle(kb *Kb, someTemplate *template.Template, notesTemplate *template.Template) http.HandlerFunc {
+func KbHandle(rootDir string, kb *Kb, someTemplate *template.Template, notesTemplate *template.Template) http.HandlerFunc {
     return func(w http.ResponseWriter, r *http.Request) {
         switch r.Method {
         case "GET":
             someTemplate.Execute(w, kb)
         case "POST":
-            press := r.FormValue("submit")
+            submit := r.FormValue("submit")
             back := r.FormValue("back")
 
-            // Pressed the back button
+            // Back button was pressed
             if len(back) > 0 {
-                // TODO: make here the back button logic
                 temp := strings.Split(back, "/")
-                temp = temp[:len(temp)-1]
-                new := strings.Join(temp, "/")
+                path := strings.Join(temp[:len(temp)-1], "/")
 
+                // Discover files and dirs from new path
                 notes := &[]Storage{}
-                DiscoverFilesAndDirs(new, notes)
+                DiscoverFilesAndDirs(path, notes)
 
-                // BUG HERE
-                // NEED TO USE THE RIGHT PATH WHEN GOING ONCE BACK AND THAT'S NOT HAPPENING
-                options := &Kb{Title: "TEMP", Notes: *notes}
-                someTemplate.Execute(w, options)
+                // Creates new page
+                page := &Kb{Notes: *notes}
+                // If it's the root dir, change title to KB
+                if path == rootDir {
+                    page.Title = "KB"
+                } else {
+                    page.Title = path
+                }
+
+                someTemplate.Execute(w, page)
 
                 // Pressed another button
             } else {
-                html, err := MdToHtml(press)
+                html, err := MdToHtml(submit)
 
                 // This is a dir
                 if err != nil {
                     notes := &[]Storage{}
-                    DiscoverFilesAndDirs(press, notes)
+                    DiscoverFilesAndDirs(submit, notes)
 
-                    options := &Kb{Title: press, Notes: *notes}
+                    options := &Kb{Title: submit, Notes: *notes}
                     someTemplate.Execute(w, options)
 
                     // This is a file
                 } else {
-                    note := Note{Title: press, Content: template.HTML(html)}
+                    note := Note{Title: submit, Content: template.HTML(html)}
                     notesTemplate.Execute(w, note)
                 }
 
