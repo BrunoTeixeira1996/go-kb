@@ -15,7 +15,8 @@
 - [x] Create the logic for the rendering
 - [x] Create the back button
 - [x] Render images from markdown
-- [ ] Pass notes location from command line
+- [x] Pass notes location from command line
+  - [ ] Working, but now it needs some clean and separation
 - [ ] Clean code and organize to a better understanding
 - [ ] Create the search functionality
 - [ ] Update files in runtime and check that live in webserver
