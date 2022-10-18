@@ -26,6 +26,10 @@ func main() {
     fs := http.FileServer(http.Dir("assets"))
     mux.Handle("/assets/", http.StripPrefix("/assets/", fs))
 
+    fs_images := http.FileServer(http.Dir("images"))
+    mux.Handle("/images/", http.StripPrefix("/images/", fs_images))
+
+
     mux.HandleFunc("/", utils.IndexHandle(baseTemplate))
 
     mux.HandleFunc("/kb", utils.KbHandle(notesDir, kb, someTemplate, noteTemplate))

@@ -14,7 +14,8 @@
 - [x] Change theme to be more like https://github.com/tsoding/tsoding.github.io 
 - [x] Create the logic for the rendering
 - [x] Create the back button
-- [ ] Render images and make html/css work better
+- [x] Render images from markdown
+- [ ] Pass notes location from command line
 - [ ] Clean code and organize to a better understanding
 - [ ] Create the search functionality
 - [ ] Update files in runtime and check that live in webserver
