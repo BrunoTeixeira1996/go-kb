@@ -13,8 +13,7 @@
 - [x] Use a different color if folder or file
 - [x] Change theme to be more like https://github.com/tsoding/tsoding.github.io 
 - [x] Create the logic for the rendering
-- [ ] Create the back button
-- [ ] Be able to read the description and Title of document and use that inside the box of html page (THINKING)
+- [x] Create the back button
 - [ ] Render images and make html/css work better
 - [ ] Clean code and organize to a better understanding
 - [ ] Create the search functionality
