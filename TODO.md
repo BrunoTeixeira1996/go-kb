@@ -23,6 +23,7 @@
 	- Implemented, now it needs some tweaks
 		- [ ] Make it possible to rebuild image
 		- [ ] Create a small image
+		- [x] Change CMD in Dockerfile to run only "/app/server" so I can pass the name of the folder I want when building the docker image
 		- [ ] Document how to build from Docker
 - [ ] Create the back button on .md files too
 - [ ] Create the search functionality
