@@ -19,8 +19,8 @@
   - [x] Working, but now it needs some clean and separation
 - [x] Clean code and organize to a better understanding
 - [x] Clean the hardcoded paths for `template.Must`
-- [ ] Create the back button on .md files too
 - [ ] Implement app in a docker container
+- [ ] Create the back button on .md files too
 - [ ] Create the search functionality
 - [ ] Update files in runtime and check that live in webserver
 - [ ] Refactor code to make it simple and normative
