@@ -20,6 +20,10 @@
 - [x] Clean code and organize to a better understanding
 - [x] Clean the hardcoded paths for `template.Must`
 - [ ] Implement app in a docker container
+	- Implemented, now it needs some tweaks
+		- [ ] Make it possible to rebuild image
+		- [ ] Create a small image
+		- [ ] Document how to build from Docker
 - [ ] Create the back button on .md files too
 - [ ] Create the search functionality
 - [ ] Update files in runtime and check that live in webserver
