@@ -8,4 +8,3 @@ docker build . -t go-kb-server
 
 echo Running docker container ...
 docker run -t -d -v $1:/app/notes -p 8080:8080 go-kb-server /app/notes
-#docker run -t -d -p 8080:8080 go-kb-server $(basename $1)

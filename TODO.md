@@ -23,10 +23,10 @@
 - [x] Create the back button on .md files too
 - [ ] Implement app in a docker container
     - Implemented, now it needs some tweaks
-        - [ ] Create a small image
+        - [ ] Create a smaller image
         - [x] Change CMD in Dockerfile to run only "/app/server" so I can pass the name of the folder I want when building the docker image
         - [x] Document how to build from Docker
-        - [ ] Move to docker compose
+- [ ] Don't show images as normal files
 - [ ] Make a better layout
 - [ ] Create the search functionality
 - [ ] Allow more file types
