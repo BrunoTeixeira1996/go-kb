@@ -22,6 +22,19 @@ go install github.com/BrunoTeixeira1996/go-kb@latest
 ./go-kb <full path of the notes folder>
 ```
 
+## Docker
+
+### Build
+
+- Run `build_docker.sh <notes folder full path>` to build and run the docker container
+
+### Rebuild
+
+- TODO
+
+### Interact 
+
+- Run `docker exec -it <CONTAINER ID> /bin/bash` to get inside the docker container
 
 # Images
 
