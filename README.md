@@ -17,13 +17,6 @@ go build
 ./go-kb <full path of the notes folder>
 ```
 
-## Install globaly
-
-```shell
-go install github.com/BrunoTeixeira1996/go-kb@latest
-./go-kb <full path of the notes folder>
-```
-
 ## Docker
 
 ### Build
