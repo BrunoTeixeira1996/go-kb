@@ -29,6 +29,7 @@
 - [ ] Don't show images as normal files
 - [ ] Make a better layout
 - [ ] Create the search functionality
+- [ ] Write tests
 - [ ] Allow more file types
 - [ ] Update files in runtime and check that live in webserver
 - [ ] Refactor code to make it simple and normative
