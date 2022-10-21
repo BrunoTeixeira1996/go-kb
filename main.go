@@ -1,7 +1,7 @@
 package main
 
 import (
-    "brunoteixeira1996/go-kb/utils"
+    "github.com/BrunoTeixeira1996/go-kb/utils"
     "fmt"
     "html/template"
     "net/http"
