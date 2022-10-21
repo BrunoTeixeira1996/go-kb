@@ -1,7 +1,11 @@
 {{ define "title" }}{{ .Title }}{{ end }}
 {{ define "content" }}
 {{ .Content }}
+<form method="POST">
 <div class="container d-flex justify-content-center" style="text-align:center;background:#1b1b1b;margin-top:50px;padding:20px">
   <button value="{{ .Title }}" name="back">Go Back!</button>
 </div>
+</form>
 {{ end }}
+
+

@@ -1,6 +1,7 @@
 package utils
 
 import (
+    "fmt"
     "html/template"
     "net/http"
     "strings"
