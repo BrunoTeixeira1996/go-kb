@@ -5,6 +5,7 @@ import (
     "io/ioutil"
     "os"
     "path/filepath"
+    "strings"
 
     "github.com/gomarkdown/markdown"
 )
@@ -39,7 +40,6 @@ func DiscoverFilesAndDirsRecur(path string, storage *[]Storage) {
     })
 }
 
-
 // Function to get the dirs and files inside a dir
 func DiscoverFilesAndDirs(path string, storage *[]Storage) error {
     files, err := ioutil.ReadDir(path)
@@ -68,6 +68,11 @@ func DiscoverFilesAndDirs(path string, storage *[]Storage) error {
 
 // Function that transforms .md syntax to .html
 func MdToHtml(file string) (string, error) {
+    //FIXME: Workaround to only render .md files
+    if !strings.HasSuffix(file, ".md") {
+        return "", fmt.Errorf("This is not a .md file")
+    }
+
     content, err := ioutil.ReadFile(file)
 
     if err != nil {

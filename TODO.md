@@ -19,14 +19,16 @@
   - [x] Working, but now it needs some clean and separation
 - [x] Clean code and organize to a better understanding
 - [x] Clean the hardcoded paths for `template.Must`
-- [ ] Implement app in a docker container
-	- Implemented, now it needs some tweaks
-		- [ ] Make it possible to rebuild image (Automate this)
-		- [ ] Create a small image
-		- [x] Change CMD in Dockerfile to run only "/app/server" so I can pass the name of the folder I want when building the docker image
-		- [x] Document how to build from Docker
+- [ ] Write the README.md
 - [ ] Create the back button on .md files too
 - [ ] Create the search functionality
+- [ ] Implement app in a docker container
+    - Implemented, now it needs some tweaks
+        - [ ] Make it possible to rebuild image (Automate this)
+        - [ ] Create a small image
+        - [x] Change CMD in Dockerfile to run only "/app/server" so I can pass the name of the folder I want when building the docker image
+        - [x] Document how to build from Docker
+- [ ] Allow more file types
 - [ ] Update files in runtime and check that live in webserver
 - [ ] Refactor code to make it simple and normative
 

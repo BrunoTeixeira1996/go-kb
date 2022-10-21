@@ -1,6 +1,7 @@
 package utils
 
 import (
+    "fmt"
     "html/template"
     "net/http"
     "strings"
@@ -68,7 +69,7 @@ func KbHandle(rootDir string, kb *Kb, someTemplate *template.Template, notesTemp
             } else {
                 html, err := MdToHtml(submit)
 
-                // This is a dir
+                // This is a dir or other file type not supported yet
                 if err != nil {
                     notes := &[]Storage{}
                     DiscoverFilesAndDirs(submit, notes)
