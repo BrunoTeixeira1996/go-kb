@@ -23,6 +23,12 @@ go install github.com/BrunoTeixeira1996/go-kb@latest
 ```
 
 
+# Images
+
+If you want to use images, create an `images` folder inside your `notes` folder and place the images in there.
+Then, if you want to call those images on the markdown file, you simply need to do `![image1](/images/image1.png)`
+
+
 # Todo
 
 Check `TODO.md`
