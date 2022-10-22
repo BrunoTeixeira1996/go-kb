@@ -56,7 +56,7 @@ func DiscoverFilesAndDirs(path string, storage *[]Storage) error {
             // and that's because at the first time using this a backslash already exists
             item = Storage{Type: "dir", FullPath: path + "/" + f.Name(), Name: f.Name(), Color: "#515151"}
         } else {
-            item = Storage{Type: "file", FullPath: path + "/" + f.Name(), Name: f.Name(), Color: "#f2dd72"}
+            item = Storage{Type: "file", FullPath: path + "/" + f.Name(), Name: f.Name(), Color: "#96A6C8"}
 
         }
 

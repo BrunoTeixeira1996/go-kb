@@ -11,7 +11,6 @@
 - [x] Clean code and organize to a better understanding
 - [x] Strip full path to only show the folder or the file name
 - [x] Use a different color if folder or file
-- [x] Change theme to be more like https://github.com/tsoding/tsoding.github.io 
 - [x] Create the logic for the rendering
 - [x] Create the back button
 - [x] Render images from markdown

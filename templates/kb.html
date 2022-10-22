@@ -3,7 +3,7 @@
 <form method="POST">
   <div class="row">
     {{ range $element := .Notes }}
-      <div class="col-sm-3 event" style="margin:30px; border: 1px solid {{ $element.Color }}">
+      <div class="col-sm-3 event" style="margin:30px; border: 2px solid {{ $element.Color }}">
         <button value="{{ $element.FullPath }}" name="submit">{{ $element.Name }}</button>
       </div>
     {{ end }}
