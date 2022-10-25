@@ -2,6 +2,7 @@
 
 I tend to create notes in markdown files and those notes are everywhere.
 This projects aims to help me visualize notes, like a knowledge base.
+This was built to improve my Go experience.
 
 
 # Build instructions
